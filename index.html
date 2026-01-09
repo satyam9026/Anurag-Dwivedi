@@ -1,90 +1,334 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anurag Dwivedi</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&amp;family=Oswald:wght@700&amp;display=swap" rel="stylesheet">
-  <link href="css/all.min.css" rel="stylesheet">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '857774970218666');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=857774970218666&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anurag Dwivedi VIP</title>
+
+  <style>
+    :root {
+      --bg-dark: #0b1020;
+      --card-bg: #141a33;
+      --primary: #00d4ff;
+      --secondary: #7c4dff;
+      --text-light: #eaeaff;
+      --text-muted: #9aa4ff;
+      --success: #2ecc71;
+      --danger: #ff4d4d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #111a3a, var(--bg-dark));
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    /* Profile */
+    .profile {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .subs {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      gap: 10px;
+    }
+
+    .stat-box {
+      flex: 1;
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .stat-box h3 {
+      font-size: 18px;
+      color: var(--primary);
+    }
+
+    .stat-box p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Button */
+    .btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 30px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-bottom: 25px;
+    }
+
+    /* Section Title */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    /* Match Card */
+    .match-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .match-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 11px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .live {
+      background: rgba(255,77,77,0.2);
+      color: var(--danger);
+    }
+
+    .teams {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .team {
+      text-align: center;
+    }
+
+    .team h2 {
+      font-size: 20px;
+    }
+
+    .team p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .vs {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .get-btn {
+      text-align: center;
+      font-size: 13px;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* Info Cards */
+    .info-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 14px;
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .info-text h4 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .info-text p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 25px;
+    }
+
+    /* Responsive */
+    @media (max-width: 360px) {
+      .team h2 {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="profile-picture">
-      <img style="margin-top: -20px; height: 100px; width: 100px;" src="image.png" alt="cricket">
+
+  <div class="container">
+
+    <!-- Profile -->
+    <div class="profile">
+      <img src="image.png" class="avatar" />
+      <div class="name">Anurag Dwivedi VIP</div>
+      <div class="subs">199,342 Subscribers</div>
     </div>
-   
-    <div class="content">
-      <h1 class="heading1">👑Anurag Dwivedi👑</h1>
-      <div class="subscriber-counter">
-        <p id="subscriber-count" style="margin: 18px ;font-size: 25px;font-weight: bold; color: white;"><b>74,028  Subscribers</b></p>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat-box">
+        <h3>199K</h3>
+        <p>Subscribers</p>
       </div>
-    </div>
-    
-    <br>
-    <div style="margin: 0px 15px; margin-top: -40px;" class="button">
-      <a href="https://t.me/+Jc04NVsuh0c1MzZl" class="btn btn--stripe">
-        Join Cricket Ka Sabse Bada Tipper <i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
-    </div>
-    <div class="content-wrapper">
-      <div class="points">
-        <ul>
-          <li><i class="fa-solid fa-share"></i> 34/31 BBL MATCHES PASSED 🏆</li>
-          <li><i class="fa-solid fa-share"></i> 70/68 IPL MATCHES PASSED 🏆</li>
-          <li><i class="fa-solid fa-share"></i> 34/31 WORLD CUP MATCHES PASSED 🏆</li>
-        </ul>
+      <div class="stat-box">
+        <h3>1,547</h3>
+        <p>Predictions</p>
+      </div>
+      <div class="stat-box">
+        <h3>95%</h3>
+        <p>Accuracy</p>
       </div>
     </div>
 
-    <div class="button">
-      <a href="#" class="btn btn--stripe">
-        SUBSCRIBE FOR FREE <i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
+    <!-- Button -->
+<a href="https://t.me/+Jc04NVsuh0c1MzZl">    <button class="btn">Join Telegram Channel</button>
+</a>
+    <!-- Hot Matches -->
+    <div class="section-title">🏆 Hot Matches</div>
+
+    <div class="match-card">
+      <div class="match-top">
+        <span class="badge">Advance Pass</span>
+        <span>Starts in 2h</span>
+      </div>
+
+      <div class="teams">
+        <div class="team">
+          <h2>IN</h2>
+          <p>India</p>
+        </div>
+        <div class="vs">VS</div>
+        <div class="team">
+          <h2>AU</h2>
+          <p>Australia</p>
+        </div>
+      </div>
+
+      <div class="get-btn">Get Prediction →</div>
     </div>
+
+    <div class="match-card">
+      <div class="match-top">
+        <span class="badge live">Live Now</span>
+        <span>2nd Innings</span>
+      </div>
+
+      <div class="teams">
+        <div class="team">
+          <h2>IN</h2>
+          <p>India</p>
+        </div>
+        <div class="vs">VS</div>
+        <div class="team">
+          <h2>ZA</h2>
+          <p>South Africa</p>
+        </div>
+      </div>
+
+      <div class="get-btn">Get Prediction →</div>
+    </div>
+
+    <!-- Info -->
+    <div class="info-card">
+      <div class="icon">📊</div>
+      <div class="info-text">
+        <h4>Pre-match Predictions</h4>
+        <p>Expert analysis before matches start.</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="icon">✅</div>
+      <div class="info-text">
+        <h4>Transparent Results</h4>
+        <p>Verified prediction history.</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="icon">🔔</div>
+      <div class="info-text">
+        <h4>In-Play Alerts</h4>
+        <p>Instant live match notifications.</p>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 Anurag Dwivedi VIP Betting Tips
+    </footer>
 
   </div>
- <script>
-   const targetCount = 74028; // Target subscriber count
-  const duration = 10000; // Duration of the counting effect in milliseconds (e.g., 3 seconds)
-  const displayElement = document.getElementById('subscriber-count');
-  
-  let startTimestamp = null;
-  
-  function countUp(timestamp) {
-    if (!startTimestamp) startTimestamp = timestamp;
-    const progress = timestamp - startTimestamp;
-    const currentCount = Math.min(Math.floor((progress / duration) * targetCount), targetCount);
-    
-    // Format the count with a comma for thousands and display it
-    displayElement.textContent = `${currentCount.toLocaleString()} Subscribers`;
-  
-    if (currentCount < targetCount) {
-      requestAnimationFrame(countUp);
-    }
-  }
-    // Start the animation
-    requestAnimationFrame(countUp);
- </script>
+
+  <script>
+    // JS Ready (future dynamic data / API use)
+    console.log("Page Loaded Successfully");
+  </script>
 
 </body>
 </html>
